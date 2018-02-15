@@ -27,7 +27,7 @@ Dir.chdir(gp.target_dir) {
         fail 'Unexpected output: #{output}' unless output[0] == 'Downloaded'
         fail 'Unexpected output: #{output}' unless output.size == 2
         version_and_platform_string = output[1].dup
-        if version_and_platform_string.slice!("#{n}-#{actual_version}-").nil?
+        if version_and_platform_string.slice!("#{n}-").nil?
           fail "Unexpected gem name: #{output[1]}"
         end
         path = sprintf(file_format, index, n, version_and_platform_string)
